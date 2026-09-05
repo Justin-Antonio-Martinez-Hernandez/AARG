@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fathom — Instrumentos de acústica submarina</title>
+<meta name="description" content="Fathom diseña hidrófonos y boyas de monitoreo para investigación marina." />
+<link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+<a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="#home" class="logo">Fathom</a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="#home">Inicio</a>
+      <a href="#work">Qué hacemos</a>
+      <a href="#team">Equipo</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+  <section id="home" class="hero">
+    <div class="container">
+      <h1>Instrumentos para escuchar el océano.</h1>
+      <p class="hero__subtitle">Fathom diseña hidrófonos y boyas de monitoreo que registran lo que pasa bajo la superficie, para quienes necesitan escucharlo con precisión.</p>
+      <div class="waveform" id="hero-waveform" aria-hidden="true"></div>
+      <button class="button button--primary" id="demo-request-button" type="button">Solicitar una demo</button>
+    </div>
+  </section>
+
+  <section id="work" class="work">
+    <div class="container">
+      <h2>Qué construimos</h2>
+      <p>Tres líneas de producto, pensadas para trabajar juntas en el mar.</p>
+      <div class="divided-list">
+        <div class="divided-list__row">
+          <h3>Hidrófonos de largo alcance</h3>
+          <p>Sensores submarinos que registran sonido de forma continua durante meses, sin intervención humana.</p>
+        </div>
+        <div class="divided-list__row">
+          <h3>Boyas de monitoreo</h3>
+          <p>Plataformas de superficie que suben los datos en tiempo real a estaciones costeras.</p>
+        </div>
+        <div class="divided-list__row">
+          <h3>Datos abiertos</h3>
+          <p>Todo lo que grabamos queda disponible para investigadores, sin licencias ni intermediarios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team" class="team">
+    <div class="container">
+      <h2>Quiénes somos</h2>
+      <p>Un equipo pequeño, la mayoría con más horas de mar que de oficina.</p>
+      <div class="divided-list">
+        <div class="divided-list__row">
+          <div>
+            <h3>Elena Voss</h3>
+            <p class="role">Investigación acústica</p>
+          </div>
+          <p>Antes de sumarse a Fathom, Elena pasó tres años liderando un programa interno de escucha oceánica, nombre en clave Nereida, cancelado en 2023 sin explicación pública.</p>
+        </div>
+        <div class="divided-list__row">
+          <div>
+            <h3>Rafael Medina</h3>
+            <p class="role">Ingeniería</p>
+          </div>
+          <p>Diseñó el sistema de anclaje que mantiene nuestras boyas en su lugar incluso con mar de fondo.</p>
+        </div>
+        <div class="divided-list__row">
+          <div>
+            <h3>Sara Kim</h3>
+            <p class="role">Diseño de producto</p>
+          </div>
+          <p>Sostiene que el mejor instrumento científico es el que el investigador deja de notar que está usando.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Hablemos</h2>
+      <p>Contanos qué necesitás escuchar.</p>
+      <form id="contact-form" novalidate>
+        <label for="contact-name">Nombre</label>
+        <input type="text" id="contact-name" name="name" required />
+        <label for="contact-email">Correo</label>
+        <input type="email" id="contact-email" name="email" required />
+        <label for="contact-message">Mensaje</label>
+        <textarea id="contact-message" name="message" rows="4" required></textarea>
+        <button type="submit" class="button button--primary">Enviar mensaje</button>
+      </form>
+      <p id="contact-confirmation" class="contact-confirmation" hidden>Gracias, tu mensaje fue recibido.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">© 2026 Fathom Ocean Instruments.</div>
+</footer>
+
+<div id="progress-tracker" class="progress-tracker" hidden>
+  <span class="progress-tracker__dot" data-progress-dot></span>
+  <span class="progress-tracker__dot" data-progress-dot></span>
+  <span class="progress-tracker__dot" data-progress-dot></span>
+  <span class="progress-tracker__dot" data-progress-dot></span>
+</div>
+
+<div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+<!-- ==================== ZONAS OCULTAS DEL ARG ==================== -->
+
+<section id="zone-terminal" class="hidden-zone" hidden>
+  <div class="container hidden-zone__inner">
+    <p class="hidden-zone__depth">140 brazas</p>
+    <h2>Algo sigue ahí abajo, repitiéndose.</h2>
+    <p>Un patrón de luz aparece una y otra vez en el registro de un hidrófono olvidado. Reproducilo y decodificá el mensaje.</p>
+    <div class="morse-console">
+      <div class="morse-console__light" data-role="morse-light" aria-hidden="true"></div>
+      <button type="button" class="button" data-role="morse-play">Reproducir señal</button>
+      <div class="morse-console__answer">
+        <label for="morse-answer-input">Mensaje decodificado</label>
+        <input type="text" id="morse-answer-input" data-role="morse-answer" autocomplete="off" />
+        <button type="button" class="button button--primary" data-role="morse-submit">Verificar</button>
+      </div>
+      <p class="feedback" data-role="morse-feedback" role="status"></p>
+      <details class="morse-reference">
+        <summary>Referencia de código Morse</summary>
+        <div class="morse-reference__grid" data-role="morse-reference-grid"></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="zone-simon" class="hidden-zone" hidden>
+  <div class="container hidden-zone__inner">
+    <p class="hidden-zone__depth">410 brazas</p>
+    <h2>Hay que sincronizar el arreglo antes de seguir.</h2>
+    <p>Repetí la secuencia de pulsos de calibración. Cinco rondas correctas y el arreglo queda sincronizado.</p>
+    <div class="simon-board">
+      <button type="button" class="simon-pad" data-pad="pad-1" aria-label="Sensor 1"></button>
+      <button type="button" class="simon-pad" data-pad="pad-2" aria-label="Sensor 2"></button>
+      <button type="button" class="simon-pad" data-pad="pad-3" aria-label="Sensor 3"></button>
+      <button type="button" class="simon-pad" data-pad="pad-4" aria-label="Sensor 4"></button>
+    </div>
+    <button type="button" class="button button--primary" data-role="simon-start">Iniciar calibración</button>
+    <p class="feedback" data-role="simon-status" role="status"></p>
+  </div>
+</section>
+
+<section id="zone-cipher" class="hidden-zone" hidden>
+  <div class="container hidden-zone__inner">
+    <p class="hidden-zone__depth">980 brazas</p>
+    <h2>Una bitácora que nadie debía leer.</h2>
+    <p>Este fragmento quedó cifrado con un desplazamiento simple, como hacían los técnicos de guardia para anotar lo que preferían no dejar a la vista. Ajustá el desplazamiento hasta que tenga sentido.</p>
+    <p class="cipher-text cipher-text--encoded" data-role="cipher-encoded"></p>
+    <p class="cipher-text cipher-text--decoded" data-role="cipher-decoded"></p>
+    <div class="cipher-controls">
+      <label for="cipher-shift-slider">Desplazamiento: <span data-role="cipher-shift-value">0</span></label>
+      <input type="range" id="cipher-shift-slider" data-role="cipher-slider" min="0" max="25" value="0" step="1" />
+    </div>
+    <p class="feedback" data-role="cipher-feedback" role="status"></p>
+  </div>
+</section>
+
+<section id="zone-final" class="hidden-zone hidden-zone--final" hidden>
+  <div class="container hidden-zone__inner">
+    <p class="hidden-zone__depth">Fondo alcanzado</p>
+    <h2>Gracias por llegar hasta el fondo.</h2>
+    <p>Lo que grabamos no era ruido — era un patrón. Todavía no sabemos qué lo hizo. — Bitácora de campo, Fathom.</p>
+    <button type="button" class="button" data-role="reset-arg">Reiniciar la búsqueda</button>
+  </div>
+</section>
+
+<script src="js/eventBus.js"></script>
+<script src="js/stateManager.js"></script>
+<script src="js/audioSynth.js"></script>
+<script src="js/uiController.js"></script>
+<script src="js/decorativeUI.js"></script>
+<script src="js/puzzles/keywordTrigger.js"></script>
+<script src="js/puzzles/morseCode.js"></script>
+<script src="js/puzzles/simonSays.js"></script>
+<script src="js/puzzles/cipherSlider.js"></script>
+<script src="js/puzzles/finalZone.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
